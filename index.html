@@ -1,0 +1,332 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- 
+  		This snippet below shows on your browsers tab (hover for description) 
+		AND it's how google creates a search result link for you!
+		Test what it would look like using this page (changes won't reflect up to 48 hours):
+			https://seomofo.com/snippet-optimizer.html
+  -->
+  <title>Don Derosier: Creator of Things</title>
+  <meta name="description" content="Jump onto this landing page to get acquainted with Donald Derosier: Podcasts, Photographer, writer, small business enthusiast">
+  <meta name="author" content="Don Derosier and Corey Boiko">
+
+
+	<!--
+		Below is the text that shows up if you link from facebook
+		after you change this, you need to also tell facebook it's been changed!
+		do that here:
+			https://developers.facebook.com/tools/debug/
+	-->
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="projects-synopsis.github.io/don-joking-around.jpg">
+	<meta property="og:title" content="Don Derosier: Creator of Things">
+	<meta property="og:description" content="Jump onto this landing page to get acquainted with Donald Derosier: Podcasts, Photographer, writer, small business enthusiast">
+	<!-- <meta property="og:image" content=""> -->
+
+
+		<!-- 
+			You're lucky it's me making this i just Know you're gonna want to change the fonts!
+			So I picked one I kinda like, now you can go do some copy pasting
+			2 places that needs to happen:
+			this following <link > tag,
+			and then once again below this in the CSS (search this document for the old font name - 'Dosis')
+		 -->
+		 <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+
+
+		<!-- 
+			OKAY SO THIS IS CSS (not html)
+			Ideally, you wouldn't have everything mashed together like this, 
+			but to learn about it, let's keep it all in one place.
+			The next comment is the code to seperate css into a different file
+		-->
+	  	<!-- <link rel="stylesheet" href="css/styles.css"> -->
+	  	<style type="text/css">
+
+	  		/* The names before {} refer to html tags, and anything within those tags,
+	  			so for example, h1{ font-size: 3em; } finds <h1>your heading here</h1> and makes the font size 3x larger */
+
+	  		html, body, * {
+	  			font-family: helvetica, sans;
+	  			margin:0;
+	  			padding:0;
+	  		}
+	  		h1,h2,h3,h4,h5,p,a,b,li,span{
+	  			font-family: 'Dosis', sans-serif;
+	  			color:#031233;
+	  		}
+
+	  		h1{
+	  			font-size: 3em;
+	  			line-height: .9em;
+	  			margin-bottom:0;
+	  		}
+
+	  		img{
+	  			max-width: 100%;
+	  		}
+	  		p{
+	  			font-size:1.4em;
+	  			line-height:1.6em;
+	  		}
+	  		a{
+	  			text-decoration: none;
+	  			color:orange;
+	  			font-weight: 550;
+	  		}
+
+	  		/* BROWN */
+	  		a:hover,
+	  		a:focus,
+	  		a:visited{
+	  			color: #b37910;
+	  		}
+
+	  		/* 
+	  			Sometimes i need to change appearances for only some tags, for example,
+				there are two <p>paragraph goes in here</p>. And they need to look a bit different.
+				that's where I use <p class="tagline">paragraph goes here</p>,
+				and to find that in CSS, i use .tagline{ color:; }
+	  		*/
+
+	  		.tagline{
+	  			color: grey;
+	  			font-size:1.8em;
+	  			margin:0;
+	  			margin-bottom:1.8em;
+
+	  		}
+
+	  		.container{
+	  			max-width: 1000px;
+	  			margin:0 auto;
+	  			overflow: hidden;
+	  		}
+
+	  		.main-content-area{
+	  			display:flex;
+	  			flex-direction: row;
+	  			flex-wrap: wrap;
+	  			min-height: 100vh;
+	  		}
+
+	  		/*
+				You can also chain two 'selectors' together, this is good practice, so that as your site grows, 
+				these smaller parts (this would be hoome splash page) remain isolated from other changes.
+				i.e.  .main-content-area .image-area{ rule: value; }
+	  		*/
+
+	  		.main-content-area .image-area{
+	  			max-height: 110px;
+	  		}
+
+	  		.main-content-area .image-area img{
+	  			min-width: 800px;
+	  			position: relative;
+	  			right:20%;
+	  		}
+
+	  		.main-content-area .copy-area{
+	  			z-index: 10;
+	  			background: white;
+	  			margin-left:10px;
+	  			margin-right:10px;
+	  			padding:15px;
+
+	  			-webkit-border-radius: 15px;
+				-moz-border-radius: 15px;
+				border-radius: 15px;
+	  		}
+
+
+	  		.footer{
+	  			width:100%;
+	  			color: #839ae0;
+	  			padding-top:15px;
+	  			padding-bottom: 15px;
+	  			text-align: center;
+
+	  		}
+
+
+	  		/* 
+	  			this is where it gets a bit complex...
+				these are called media queries, and they change the previously defined rules BASED ON SCREEN SIZE
+				yeah. Super powerful. It's important to see here that some rules are more specifc, 
+				and so no matter what they will override the less specific ones (any basic CSS tutorial will explain this further)
+				Otherwise, if they are the same, whichever rule is FURTHER DOWN THE PAGE overrides the previous ones!
+			*/
+
+			@media(min-width: 768px ){
+				.main-content-area{
+		  			flex-wrap: nowrap;
+		  		}
+
+		  		.main-content-area .image-area{
+		  			overflow: hidden;
+		  			max-width: 50%;
+		  			max-height: inherit;
+		  		}
+
+		  		.main-content-area .image-area img{
+		  			min-width: 1024px;
+		  			right:0%;
+
+		  		}
+
+		  		.main-content-area .copy-area{
+		  			display: flex;
+		  			max-width: 50%;
+		  			flex-wrap:wrap;
+		  			justify-content: center;
+	    			flex-direction: column;
+		  			align-content: space-around;
+		  		}
+			}
+
+	  	</style>
+
+</head>
+<body>
+
+	<!-- This is where the actual DISPLAYED content goes -->
+
+	<!-- divide your content up in boxes (and remember that under a certain screen size it must go horizontal!) -->
+	<div class="main-content-area container">
+		<div class="image-area">
+			<img title="Don Derosier being a combination of Goofy and serious" id="main-image" src="don-joking-around.jpg"/>
+
+		</div>
+		<div class="copy-area">
+			<h1>Don Derosier</h1>
+			<p class="tagline">Creator of things</p>
+
+			<p>
+
+				I host a 
+				<a  alt="Listen to a legacy preserving podcast"
+					class="external-link" target="_blank" href="http://astimegoesbypodcast.buzzsprout.com/">podcast</a>, 
+				'As Time Goes By', where I preserve legacies. 
+
+				I take 
+				<a  alt="professional photography of businesses, people, and art"
+					class="external-link" target="_blank" href="https://donderosierphoto.tumblr.com/">pictures</a> 
+				of artists and small, unique businesses. 
+
+				I sell 'super fancy' astronaut 
+				<a  alt="buy prints here of projects such as this astronaut suit which finds itself all over"
+					class="external-link" target="_blank" href="https://215552.lightfolio.com/gallery/space-hero-art">prints</a>. 
+
+				I 
+				<a  alt="Read some creative writing from Don Derosier"
+					class="external-link" target="_blank" href="https://medium.com/@donjderosier">write</a> 
+				for myself and occasionally for others. 
+
+			</p>
+		</div>
+	</div>
+	<div class="container">
+		<div class="footer">&copy;Don Derosier 2019</div>
+	</div>
+
+</body>
+
+	<!-- 
+		OKAY SO THIISSSSSSS is javascript. JS. It's the dynamics. It's the moving shit around.
+		It's the bee's knees. It's my bread and buttuh.
+
+		BUT! It's not easy to play around with, so be careful
+
+		Again, ideally this would be in a different file:
+  			<script src="js/scripts.js"></script>
+
+		in the meantime, I'm keeping it here.
+	 -->
+
+	<!-- this is a helper for javascript to write it faster/easier especially for animation type stuff -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
+  <script type="text/javascript">
+  	
+  	/* 
+		this can slow down your page load, because it can do thousands of operations per second.
+		Just because I think it's funny, you should uncomment the following code to crash your browser 
+			(remove the two slashes before it.. and then comment it out again before posting it)
+  	*/
+  	//while(true){ $('h1').append(' DeDon Derosier') }
+
+
+  	/*
+		What have we learned?? Javascript can be dangerous. Don't mess around too much here without knowing what you're doing!!
+
+		This little bit of code makes the browser wait for everything else to load,
+			before executing any Javascript
+  	*/
+  	$(document).ready(function(){
+
+		/* 
+			This is where I get to be a bit creative. It's the coolness factor
+			This is how web devs do things that plebs dont understand
+			its the magic!
+
+			Right off the bat, I think it's funny to start altering the page based on user interaction.
+			We've got a very simple page, and the interactions we're looking for are 
+			CLICKS ON YOUR EXTERNAL LINKS
+
+			I've got it set up so that the link opens in a new tab, so why not flip the image we use if they click any of those links????
+
+			I think yes.
+		*/
+
+
+		$('.external-link').click(function(){
+			$('#main-image').attr('src', 'don-getting-serious.jpg')
+
+		});
+
+		/* EASY */
+
+		/*
+			now what about some sort of flashiness that happens when they show up, to help them realize that they want to click one of those links, hm??
+
+			I think the joking photo maybe is a bit too joking, so what if we had the image lazily drift out of the side of the text?
+	
+			Damn, I gotta know if they are on mobile, and do it differently if they are!
+			I got this.
+			EASY
+		*/
+
+		//I'm changing this MAIN RULE that moves the 'column' tower (img - heading - paragraph - etc)
+				//to instead be a 'row', so I'll check which one it is!! 
+				//that way if I/we change the width where it changes (breakpoint), it won't have to change here as well.
+		var userOnDesktop = $('.main-content-area').css('flex-wrap') === 'nowrap';
+
+		//Anntiicciiii pp .... ppppp .... pppaaaation.
+				    //milliseconds => .5s
+		var timeToWaitForAnimation = 500;
+
+
+		setTimeout(function(){
+			if(userOnDesktop){
+				//desktop image needs to slide out LEFT
+				$('#main-image').animate({ right: '50%' }, 1000);
+
+			}else{
+				//mobile image needs to slide UP
+				$('#main-image').animate({ bottom: '80%' }, 1000);
+
+			}
+		}, timeToWaitForAnimation);
+		
+
+
+  	});
+
+  </script>
+</html>
