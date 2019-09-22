@@ -47,6 +47,19 @@
 			The next comment is the code to seperate css into a different file
 		-->
 	  	<!-- <link rel="stylesheet" href="css/styles.css"> -->
+
+
+
+	  	<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-100795346-2"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+
+			  gtag('config', 'UA-100795346-2');
+			</script>
+
 	  	<style type="text/css">
 
 	  		/* The names before {} refer to html tags, and anything within those tags,
@@ -63,7 +76,7 @@
 	  		}
 
 	  		h1{
-	  			font-size: 4em;
+	  			font-size: 2.5em;
 	  			line-height: 1em;
 	  			margin-bottom:0;
 	  		}
@@ -99,12 +112,12 @@
 	  			color: grey;
 	  			font-size:2.0em;
 	  			margin:0;
-	  			margin-bottom:1.4em;
+	  			margin-bottom:.7em;
 
 	  		}
 
 	  		.container{
-	  			max-width: 1000px;
+	  			max-width: 1200px;
 	  			margin:0 auto;
 	  			overflow: hidden;
 	  		}
@@ -123,7 +136,7 @@
 	  		*/
 
 	  		.main-content-area .image-area{
-	  			max-height: 110px;
+	  			max-height: 190px;
 	  		}
 
 	  		.main-content-area .image-area img{
@@ -164,6 +177,12 @@
 			*/
 
 			@media(min-width: 768px ){
+				h1{font-size:4em;}
+				.tagline{
+					font-size:2.0em;
+
+				}	
+				
 				.main-content-area{
 		  			flex-wrap: nowrap;
 		  		}
@@ -191,6 +210,8 @@
 			}
 
 	  	</style>
+	
+	<script src="https://kit.fontawesome.com/7b47b2f34f.js"></script>
 
 </head>
 <body>
@@ -229,6 +250,19 @@
 				for myself and occasionally for others. 
 
 			</p>
+		</div>
+		<div class="socials">
+			<a href="https://www.facebook.com/djderosier" class="social-icon" target="_blank">
+				<i class="fab fa-3x fa-facebook-square"></i>
+			</a>
+			<a href="https://www.instagram.com/donbarringtonphoto/" class="social-icon" target="_blank">
+				<i class="fab fa-3x fa-instagram"></i>
+			</a>
+			<a href="https://www.linkedin.com/in/donald-j-derosier/" class="social-icon" target="_blank">
+				<i class="fab fa-3x fa-linkedin"></i>
+			</a>
+			
+
 		</div>
 	</div>
 	<div class="container">
@@ -282,10 +316,27 @@
 
 			I think yes.
 		*/
+		let donsImageURLs = [
+			'don-joking-around.jpg',
+			'don-getting-serious.jpg'
+			//'don-getting-ritzy.jpg'
+
+		];
+
+		let currImageIndex = 0;
 
 
+		//click function to show new image
 		$('.external-link').click(function(){
-			$('#main-image').attr('src', 'don-getting-serious.jpg')
+
+			currImageIndex++;
+			$('#main-image').attr('src', donsImageURLs[currImageIndex]);
+
+			//reset the positioning values of the image
+			$('#main-image').removeAttr('style');
+
+			//do thre animation again
+			animateDonsFace();
 
 		});
 
@@ -311,17 +362,42 @@
 		var timeToWaitForAnimation = 500;
 
 
-		setTimeout(function(){
-			if(userOnDesktop){
-				//desktop image needs to slide out LEFT
-				$('#main-image').animate({ right: '50%' }, 1000);
+		function animateDonsFace(){
+			//every second, check again if user is on your web page
+			let userFocused = setInterval(function(){
+				console.log('user aint focused dawg')
+				//this is true, if your page is focused
+				if(document.hasFocus()){
+					//if your page is focused, stop checking every second.
+					clearInterval(userFocused);
+					console.log('what up dooo!!?>!')
 
-			}else{
-				//mobile image needs to slide UP
-				$('#main-image').animate({ bottom: '80%' }, 1000);
+					if(userOnDesktop){
+						//wait a bit of time to start animation
+						setTimeout(function(){
+							//desktop image needs to slide out LEFT
+							$('#main-image').animate({ right: '50%' }, 1000);
 
-			}
-		}, timeToWaitForAnimation);
+						}, timeToWaitForAnimation);
+
+					}else{
+
+						//wait a bit of time to start animation
+						setTimeout(function(){
+							//mobile image needs to slide UP
+							$('#main-image').animate({ bottom: '50%' }, 1000);
+
+						}, timeToWaitForAnimation);
+					}
+				}
+
+			}, 1000)
+
+		}
+
+		animateDonsFace();
+
+
 		
 
 
