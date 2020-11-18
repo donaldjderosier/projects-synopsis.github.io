@@ -1,2 +1,2 @@
 # projects-synopsis.github.io
-A splash page meant to showcase projects hosted in various place, including photography, writing, and podcasting.
+A landing page to show marketing, entrepreneurship, and technology through photography, copywriting, and podcasting.
